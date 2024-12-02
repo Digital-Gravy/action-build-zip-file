@@ -1,0 +1,22 @@
+# action.yml
+name: 'Build ZIP File'
+description: 'Runs a build command and locates the generated ZIP file'
+
+inputs:
+  build_command:
+    description: 'Command to build the ZIP file'
+    required: false
+    default: 'npm run build:zip'
+  dist_dir:
+    description: 'Directory where the ZIP file will be generated'
+    required: true
+
+outputs:
+  zip_file:
+    description: 'Full path to the created ZIP file'
+  filename:
+    description: 'Name of the created ZIP file'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
